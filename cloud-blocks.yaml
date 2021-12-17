@@ -1,0 +1,28 @@
+team:
+   configItem:
+   appPrefix:
+   LOB:
+   costCenter:
+   owner:
+   supportEmail:
+blocks:
+   projectName:
+   stacks:
+     - name:main
+       template: stepfucnction
+       defaults:
+         glueJobArnList:
+         lambdaFunctionArnList:
+         stepFunctionName:
+         stepFunctionDefinitionFilename:
+        files:
+           - filename:state_machine_definition.json
+             filenameVariable: stateMachineDefinitionFilename
+             translations:
+                - type: replaceVariables
+                - type: jinja
+                - type: extractArns
+                  variable: lambdaFunctionArns
+                  service: lambda
+                - type: varyFileName
+
